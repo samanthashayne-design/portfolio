@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SWAP: Larry's name for yours -->
+  <title>Samantha Shayne ~ portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="#works">Works</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div data-view="home">
+
+<header class="entrance">
+  <!-- SWAP: your name, your words -->
+  <h1>Samantha Shayne</h1>
+  <p>artist and designer ~ Santa Barbara</p>
+</header>
+
+<main id="works">
+
+  <!-- ============================================================
+       This is Larry's portfolio. Your job: make it YOURS.
+       1. Put your media files in the media/ folder,
+          named projectname_NN.ext ~ lowercase, no spaces.
+       2. Swap Larry's filenames, titles, meta, and text for yours,
+          one project at a time. Check the browser after each swap.
+       3. Copy a whole <section> block to add more projects. The
+          FIRST <figure> in each project's <template> becomes that
+          project's cover image/video automatically.
+       4. Delete Larry's leftovers when you are done.
+       5. Every image/video that belongs to a project (including
+          the cover) lives in that project's <template class="project-gallery">
+          ~ add or remove <figure> tiles there as you add or remove
+          files. "View all" opens all of them in a carousel.
+       ============================================================ -->
+
+  <section class="project">
+    <div class="project-grid">
+      <div class="project-cover">
+        <img src="media/shayne_farm_02.png" alt="farmland game garden view with sunflower, corn, lettuce, and tomato plots">
+      </div>
+      <div class="project-info">
+        <h2>Farmland</h2>
+        <p class="meta">webpage | 2026 | MAT 111WN | Samantha Shayne</p>
+        <p class="blurb">
+          Farmland is a simple interactive web-based game that was created to familiarize myself with web narrative and game principles. It was created in Visual Studio Code with HTML, CSS, and Java Script. Most design elements were drafted and modeled in p5.js. I designed almost all the visual features from simple js shapes to implement a tone of simplicity and reminders of childhood. The general aesthetic goals for this game was to suggest joy, calmness, and playfulness.
+        </p>
+        <div class="project-actions">
+          <button class="view-all" data-project="farmland" type="button">View all</button>
+          <a class="project-link" href="https://samanthashayne-design.github.io/farm-/">Visit Farmland ↗</a>
+        </div>
+      </div>
+    </div>
+    <template class="project-gallery" data-project="farmland">
+      <figure>
+        <img src="media/shayne_farm_02.png" alt="farmland game garden view with sunflower, corn, lettuce, and tomato plots">
+        <figcaption>Garden view of Farmland game</figcaption>
+      </figure>
+      <figure>
+        <img src="media/shayne_farm_03.png" alt="wheelbarrow full of harvested crops with a congratulations message">
+        <figcaption>Ending scene of Farmland game</figcaption>
+      </figure>
+    </template>
+  </section>
+
+  <section class="project">
+    <div class="project-grid project-grid-reverse">
+      <div class="project-info">
+        <h2>Gaucho Creative x Terra.do</h2>
+        <p class="meta">Print | 2026 | Gaucho Creative | Samantha Shayne</p>
+        <p class="blurb">
+          These are some final deliverables for our consulting project with our client, Terra.do. Our project consisted of two informational booklets with research and suggestions, as well as a series of social media post ideas. As a designer for Gaucho Creative, I designed these booklets, and created many of the social media posts. Because Terra.do is an environmental company, I focused on a light, earthy color scheme and aesthetic simplicity. We were also interested in appealing to a more Gen-Z audience with the social media posts.
+        </p>
+        <div class="project-actions">
+          <button class="view-all" data-project="terra" type="button">View all</button>
+        </div>
+      </div>
+      <div class="project-cover">
+        <img src="media/shayne_terra_01.png" alt="Market Research Report cover page, spring 2026">
+      </div>
+    </div>
+    <template class="project-gallery" data-project="terra">
+      <figure>
+        <img src="media/shayne_terra_01.png" alt="Market Research Report cover page, spring 2026">
+        <figcaption>Market research report cover page</figcaption>
+      </figure>
+      <figure>
+        <img src="media/shayne_terra_02.png" alt="Activation Booklet cover page">
+        <figcaption>Activation booklet cover page</figcaption>
+      </figure>
+      <figure>
+        <img src="media/shayne_terra_03.png" alt="About Gaucho Creative and About Terra.do background page">
+        <figcaption>Background page</figcaption>
+      </figure>
+      <figure>
+        <img src="media/shayne_terra_04.png" alt="course spotlight card for Mastering Corporate Climate Reporting">
+        <figcaption>Course spotlight page</figcaption>
+      </figure>
+      <figure>
+        <img src="media/shayne_terra_05.png" alt="skills you'll learn infographic page">
+        <figcaption>Skills you'll learn page</figcaption>
+      </figure>
+      <figure>
+        <img src="media/shayne_terra_06.png" alt="Terra.do Wrapped cover graphic">
+        <figcaption>Wrapped cover page</figcaption>
+      </figure>
+    </template>
+  </section>
+
+  <section class="project">
+    <div class="project-grid">
+      <div class="project-cover">
+        <video src="shayne_tree_02.mp4" muted loop autoplay playsinline></video>
+      </div>
+      <div class="project-info">
+        <h2>Tree of Light</h2>
+        <p class="meta">Interactive exhibit | 2026 | MAT 111FS | Samantha Shayne</p>
+        <p class="blurb">
+          This was a group project created with Cailyn Apistar, Irene Chong, Robert Giron, and Alisa Moyse. This was a very collaborative project, but I was most involved with ideation, prototyping, and some TouchDesigner editing. This was prototyped in p5.js and transitioned into TouchDesigner for a more advanced concept using an L-System, camera, and microphone to track audience movement and volume. Our goal was to explore ideas of maturing and growing into adulthood through an optimistic lens. This art piece embraces light and growth as the viewers get louder and closer to the piece to celebrate emotional closeness and authenticity.
+        </p>
+        <div class="project-actions">
+          <button class="view-all" data-project="tree" type="button">View all</button>
+        </div>
+      </div>
+    </div>
+    <template class="project-gallery" data-project="tree">
+      <figure>
+        <video src="shayne_tree_02.mp4" controls muted loop></video>
+        <figcaption>Video of tree installation</figcaption>
+      </figure>
+      <figure>
+        <img src="shayne_tree_03.png" alt="branching web of light projected across a corner, with a viewer silhouetted beneath it">
+        <figcaption>Tree of Light projection, viewer beneath the canopy</figcaption>
+      </figure>
+      <figure>
+        <video src="media/shayne_tree_04.mp4" controls muted loop></video>
+        <figcaption>Video of Tree of Light installation</figcaption>
+      </figure>
+    </template>
+  </section>
+
+
+
+  <!-- ADD YOUR NEXT PROJECT HERE: copy a whole <section> ... </section> block,
+       alternating project-grid / project-grid-reverse so covers keep alternating sides -->
+
+</main>
+
+<!-- carousel used by every project's "View all" button -->
+<div class="carousel-overlay" id="carousel-modal" hidden>
+  <button class="carousel-close" type="button" aria-label="Close">✕</button>
+  <button class="carousel-prev" type="button" aria-label="Previous">‹</button>
+  <div class="carousel-track"></div>
+  <button class="carousel-next" type="button" aria-label="Next">›</button>
+  <p class="carousel-counter"></p>
+</div>
+
+</div>
+
+<!-- SWAP: a few lines about you -->
+<section class="page-intro" data-view="about" hidden>
+  <p>
+    I'm a designer and artist studying at UC Santa Barbara, working across
+    web, print, and interactive media. My work moves between playful
+    interactive pieces and considered client design ~ replace this with
+    your own bio.
+  </p>
+</section>
+
+<!-- SWAP: your name and email -->
+<section class="page-intro" data-view="contact" hidden>
+  <p>Samantha Shayne ~ <a href="mailto:samanthashayne@ucsb.edu">samanthashayne@ucsb.edu</a> ~ 2026</p>
+</section>
+
+<script>
+  // The title slide scrolls straight into Works ~ it's plain page
+  // flow, so #works is just a scroll target. About and Contact are
+  // separate info-only slides that replace the whole view; this
+  // swaps them in/out based on the URL hash.
+  const homeView = document.querySelector('[data-view="home"]');
+  const infoViews = document.querySelectorAll('[data-view="about"], [data-view="contact"]');
+
+  function render() {
+    const hash = location.hash.slice(1);
+    const isInfoPage = hash === 'about' || hash === 'contact';
+
+    homeView.hidden = isInfoPage;
+    infoViews.forEach(el => {
+      el.hidden = el.dataset.view !== hash;
+    });
+
+    if (hash === 'works') {
+      const firstProject = document.querySelector('#works .project');
+      (firstProject || document.getElementById('works'))
+        .scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  render();
+  window.addEventListener('hashchange', render);
+
+  // ---- "View all" carousel ----
+  // Each project's <template class="project-gallery"> holds every
+  // figure for that piece. Clicking "View all" clones them into
+  // the shared carousel; arrows and horizontal scroll/swipe both
+  // move through it.
+  const modal = document.getElementById('carousel-modal');
+  const track = modal.querySelector('.carousel-track');
+  const counter = modal.querySelector('.carousel-counter');
+  let slides = [];
+  let current = 0;
+
+  function updateCounter() {
+    counter.textContent = slides.length ? `${current + 1} / ${slides.length}` : '';
+  }
+
+  function goTo(index) {
+    if (!slides.length) return;
+    current = (index + slides.length) % slides.length;
+    slides[current].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    updateCounter();
+  }
+
+  function openGallery(projectSlug) {
+    const template = document.querySelector(`template[data-project="${projectSlug}"]`);
+    if (!template) return;
+    track.innerHTML = '';
+    track.appendChild(template.content.cloneNode(true));
+    slides = Array.from(track.children);
+    current = 0;
+    updateCounter();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGallery() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    track.querySelectorAll('video').forEach(v => v.pause());
+  }
+
+  document.querySelectorAll('.view-all').forEach(btn => {
+    btn.addEventListener('click', () => openGallery(btn.dataset.project));
+  });
+
+  modal.querySelector('.carousel-close').addEventListener('click', closeGallery);
+  modal.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
+  modal.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeGallery();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (modal.hidden) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+  });
+
+  // keep the counter in sync when the person scrolls/swipes by hand
+  track.addEventListener('scroll', () => {
+    if (!slides.length || !track.clientWidth) return;
+    const idx = Math.round(track.scrollLeft / track.clientWidth);
+    if (idx !== current && idx >= 0 && idx < slides.length) {
+      current = idx;
+      updateCounter();
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>

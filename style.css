@@ -1,0 +1,407 @@
+/* MAT 189 starter stylesheet.
+   Edited to give each project a "collage board" of every file
+   that shares its name ~ see the .collage rules below. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,400&display=swap');
+
+/* soft, blurred sage/yellow aura behind the whole page ~ a fixed,
+   heavily-blurred layer of color pools rather than hard-edged
+   circles, so it reads as a smooth dreamy wash, mostly white with
+   sage green and soft yellow accents */
+html {
+  background: #fbfbf7; /* near-white base */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: transparent;
+  position: relative;
+  max-width: 90rem;          /* the centered readable column ~ widened so the collages have room to grow */
+  margin: 0 auto;
+  padding: 1.5rem 3.5rem;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10vh -10vw;
+  z-index: -1;
+  filter: blur(100px);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(169, 194, 160, 0.55), transparent 42%),
+    radial-gradient(circle at 84% 62%, rgba(195, 214, 186, 0.5), transparent 42%),
+    radial-gradient(circle at 78% 6%, rgba(243, 227, 168, 0.28), transparent 36%),
+    radial-gradient(circle at 50% 45%, #ffffff, transparent 60%);
+}
+
+/* the home view (title + Works) and the About/Contact slides are
+   toggled by the hash router in index.html */
+[hidden] {
+  display: none !important;
+}
+
+/* ---- top nav ----
+   A plain static bar across the full width of the window, in the
+   same serif as the title. Links read as part of the page's
+   typography, not as underlined/colored "links". */
+
+:root {
+  --nav-h: 4.5rem;
+}
+
+.site-nav {
+  width: 100vw;
+  margin-top: -1.5rem; /* cancel body's top padding so the bar is flush with the window */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3.5rem;
+  padding-left: 2.5rem;
+  background: #fdfdfa;
+  border-bottom: 1px solid rgba(107, 130, 92, 0.3);
+}
+
+.site-nav a {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: #4d5b4a;
+}
+
+/* ---- about / contact info slides ----
+   No title, no heading ~ just the info, filling the screen below
+   the nav the same way the entrance does. */
+
+.page-intro {
+  min-height: calc(100vh - 3rem - var(--nav-h));
+  margin: 0 auto;
+  max-width: 34rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-intro p {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ---- entrance page ----
+   The header fills the rest of the first screen (below the nav)
+   as a title page: name and tagline centered in the blurred
+   green wash. */
+
+header.entrance {
+  min-height: calc(100vh - 3rem - var(--nav-h)); /* viewport minus body padding and nav */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+header.entrance h1 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2.75rem, 8vw, 6rem);
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  opacity: 0;
+  animation: entrance-rise 0.9s ease forwards 0.1s;
+}
+
+header.entrance p {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #4d5b4a;
+  opacity: 0;
+  animation: entrance-rise 0.9s ease forwards 0.35s;
+}
+
+@keyframes entrance-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header.entrance h1,
+  header.entrance p {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+main { margin-top: 0; }
+
+.project {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 5rem 0;
+  box-sizing: border-box;
+}
+
+/* ---- project cover + info layout ----
+   Cover image/video on one side, title/blurb/actions on the
+   other. .project-grid-reverse flips which side the cover sits
+   on, alternated per project in the markup. */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 4.5rem;
+  align-items: stretch;
+  width: 100%;
+  min-height: 65vh;
+}
+
+.project-grid-reverse {
+  grid-template-columns: 1fr 1.15fr;
+}
+
+.project-grid-reverse .project-cover { order: 2; }
+.project-grid-reverse .project-info { order: 1; }
+
+.project-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* the image/video is never cropped ~ it scales down to fit
+   inside the cover area at its own natural aspect ratio */
+.project-cover img,
+.project-cover video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.project-info h2 { margin: 0 0 0.4rem; font-size: 2.1rem; }
+.project-info .meta { color: #666; font-size: 1rem; margin: 0 0 1.5rem; }
+.project-info .blurb { margin: 0 0 2rem; font-size: 1.08rem; line-height: 1.7; }
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.view-all {
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #1a1a1a;
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.view-all:hover,
+.view-all:focus-visible {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.project-link {
+  font-size: 0.9rem;
+  color: #4d5b4a;
+}
+
+@media (max-width: 40rem) {
+  .project-grid,
+  .project-grid-reverse {
+    grid-template-columns: 1fr;
+  }
+  .project-grid-reverse .project-cover,
+  .project-grid-reverse .project-info {
+    order: initial;
+  }
+}
+
+/* ---- "view all" carousel ---- */
+
+.carousel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(20, 22, 18, 0.88);
+  padding: 2rem;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  max-width: 60rem;
+  width: 100%;
+}
+
+.carousel-track figure {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-track img,
+.carousel-track video {
+  max-width: 100%;
+  max-height: 72vh;
+  display: block;
+}
+
+.carousel-track figcaption {
+  color: #eee;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.carousel-prev,
+.carousel-next,
+.carousel-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.carousel-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.carousel-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ddd;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ---- collage board ----
+   Each project's images/videos sit together, borderless, each at
+   its own natural size and as large as the row allows. Captions
+   sit flush with the bottom-left edge of their picture. Hovering
+   a tile enlarges it. Add or remove <figure> tiles inside .collage
+   as files are added/removed; the layout reflows on its own. */
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+  gap: 1.5rem 1.25rem;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0;
+}
+
+.collage figure {
+  margin: 0;
+  transition: transform 0.2s ease;
+}
+
+.collage figure:hover {
+  transform: scale(1.08);
+  position: relative;
+  z-index: 2;
+}
+
+.collage img,
+.collage video { max-width: 100%; height: auto; display: block; }
+
+.collage figcaption { color: #666; font-size: 0.8rem; margin-top: 0.35rem; text-align: left; }
+
+/* ---- terra collage: force a 3-across, 2-row layout ---- */
+.collage.collage-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 1.25rem;
+}
+
+.collage.collage-3col figure { max-width: none; }
+
+/* ---- tree of light collage: the original video sits large on
+   the left, the other two files stack vertically beside it so
+   they can each be bigger than a plain three-across row allows ---- */
+.collage.collage-tree {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.collage.collage-tree > figure {
+  max-width: none;
+  min-width: 0;
+  flex: 2.6 1 0;
+}
+
+.collage-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.collage-side figure { max-width: none; }
+
+/* figures used outside a collage (fallback) keep the plain look */
+figure:not(.collage figure) { margin: 1.5rem 0; }
+img, video { max-width: 100%; }
+
+footer { margin: 4rem 0 2rem; color: #666; font-size: 0.9rem; }
